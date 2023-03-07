@@ -1,3 +1,8 @@
+import { contador } from "./reporte";
+
+// contador de imagenes cargadas
+export let imagesLoad = 0;
+
 const isIntersecting = (entry) => {
     return entry.isIntersecting // true (dentro de la pantalla)
 }
@@ -10,8 +15,12 @@ const loadImage = (entry)=> {
     // Cargue la imagen
     image.src = url;
 
+    imagesLoad++;
+    contador();
+
     //deje de observar la imagen
     observer.unobserve(container);
+
 }
 
 const observer = new IntersectionObserver((entries)=>{
@@ -19,7 +28,6 @@ const observer = new IntersectionObserver((entries)=>{
     .filter(isIntersecting)
     .forEach(loadImage)
 })
-
 
 //
 export const registerImage = (image) => {

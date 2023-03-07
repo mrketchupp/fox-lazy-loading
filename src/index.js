@@ -25,19 +25,15 @@ async function getImage(urlAPI) {
     // crear imagen
     const image = document.createElement('img');
     image.dataset.src = await data.image;
+    image.src = "https://icon-library.com/images/loading-gif-icon/loading-gif-icon-29.jpg";
     image.width = '320';
-
-    // crear loader
-    const loader = document.createElement('div');
-    loader.className = 'w-24 bg-gray-500 min-w-max mx-auto'
-    loader.appendChild(image);
 
     // crear imgContainer
     const imgContainer = document.createElement('div');
-    imgContainer.className = 'p-4';
-    imgContainer.append(loader);
+    imgContainer.className = 'p-4 flex justify-center';
+    imgContainer.append(image);
 
-    registerImage(loader);
+    registerImage(imgContainer);
     appNode.append(imgContainer);
 
     totalImages++;

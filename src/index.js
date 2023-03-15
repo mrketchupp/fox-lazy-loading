@@ -80,11 +80,5 @@ const removeImg = async ()=> {
     appNode.appendChild(removeBoton);
 }
 
-// animacion de carga para las imagenes
-const imgObserver = ()=> {
-    
-}
-
 addImg();
 removeImg();
-
